@@ -18,7 +18,7 @@ import 'package:foodie_customer/ui/settings/SettingsScreen.dart';
 import 'package:image_picker/image_picker.dart';
 
 class ProfileScreen extends StatefulWidget {
-  final User user;
+  final User? user;
 
   ProfileScreen({Key? key, required this.user}) : super(key: key);
 
@@ -32,12 +32,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   void initState() {
-    user = widget.user;
+    user = widget.user!;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    user = widget.user!;
+
     return Scaffold(
       backgroundColor: isDarkMode(context) ? Color(DARK_COLOR) : null,
       body: SingleChildScrollView(

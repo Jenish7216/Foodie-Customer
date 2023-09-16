@@ -27,6 +27,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'bottom_bar_screen.dart';
 import 'model/User.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
@@ -218,7 +219,9 @@ class OnBoardingState extends State<OnBoarding> {
               user.fcmToken = await FireStoreUtils.firebaseMessaging.getToken() ?? '';
               await FireStoreUtils.updateCurrentUser(user);
               MyAppState.currentUser = user;
-              pushReplacement(context, ContainerScreen(user: user));
+              // pushReplacement(context, ContainerScreen(user: user));
+              pushReplacement(context, BottomBar(user: user));
+
             } else {
               user.lastOnlineTimestamp = Timestamp.now();
               user.fcmToken = "";

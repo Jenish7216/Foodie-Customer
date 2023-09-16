@@ -10,6 +10,8 @@ import 'package:foodie_customer/ui/container/ContainerScreen.dart';
 import 'package:foodie_customer/ui/phoneAuth/PhoneNumberInputScreen.dart';
 import 'package:foodie_customer/ui/resetPasswordScreen/ResetPasswordScreen.dart';
 
+import '../../bottom_bar_screen.dart';
+
 class LoginScreen extends StatefulWidget {
   @override
   State createState() {
@@ -284,7 +286,8 @@ class _LoginScreen extends State<LoginScreen> {
         MyAppState.currentUser = result;
         print(MyAppState.currentUser!.active.toString() + "===S");
         if (MyAppState.currentUser!.active == true) {
-          pushAndRemoveUntil(context, ContainerScreen(user: result), false);
+          // pushAndRemoveUntil(context, ContainerScreen(user: result), false);
+          pushAndRemoveUntil(context, BottomBar(user: result), false);
         } else {
           showAlertDialog(context, "Your account has been disabled, Please contact to admin.".tr(), "", true);
         }

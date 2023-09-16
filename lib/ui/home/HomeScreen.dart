@@ -135,6 +135,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("HomeScreen");
     return SafeArea(
       child: Scaffold(
           backgroundColor: isDarkMode(context) ? const Color(DARK_BG_COLOR) : const Color(0xffFFFFFF),
@@ -683,13 +684,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                                 SizedBox(
                                                                                   width: 10,
                                                                                 ),
-                                                                                Text(
+                                                                                currencyModel!=null ? Text(
                                                                                   "${kilometer.toDouble().toStringAsFixed(currencyModel!.decimal)} km",
                                                                                   style: TextStyle(
                                                                                       fontFamily: "Poppinsm",
                                                                                       letterSpacing: 0.5,
                                                                                       color: isDarkMode(context) ? Colors.white : Colors.black.withOpacity(0.60)),
-                                                                                ).tr(),
+                                                                                ).tr() : Container(),
                                                                               ],
                                                                             ),
                                                                             SizedBox(
